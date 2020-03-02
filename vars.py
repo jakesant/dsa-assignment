@@ -10,10 +10,13 @@
 
 x = str("Data") #Here the data type has been manually set by us
 
-num1 = 1 #int
-num2 = 2.8 #float
-num3 = 1j #complexn
+def num_types():
+    num1 = 1 #int
+    num2 = 2.8 #float
+    num3 = 1j #complex - complex uses j instead of i
 
-y = type(num1)
+    y  = type(num1) #Gives the data type for that variable
 
-print(y)
+    print(y)
+
+num_types()

@@ -21,7 +21,7 @@ print(var2)
 
 x, y, z = 1, 2, 3
 
-print("This is print statement number " + x)
+#print("This is print statement number " + x) - Statement does not work because string can only concatenate to another string
 
 #Strings can be concatenated simply using a +
 
