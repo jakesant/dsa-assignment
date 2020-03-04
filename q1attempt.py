@@ -23,7 +23,7 @@ def pop_arrays():
     """
 #https://treyhunner.com/2016/04/how-to-loop-with-indexes-in-python/
 
-    for x in A:
+    for x in range(len(A)):
         print("Value is currently %d" % (A[x]))
         A[x] += x
         print("Value is now %d" % (A[x]))
