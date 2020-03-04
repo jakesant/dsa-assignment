@@ -25,7 +25,7 @@ def pop_arrays():
 
     for x in range(len(A)):
         print("Value is currently %d" % (A[x]))
-        A[x] += x
+        A[x] = random.randint(0, 1024)
         print("Value is now %d" % (A[x]))
         """
         A[x] = random.randint(0, 1024)
