@@ -9,28 +9,27 @@
 import array as arr #We import the array module and can designate it as arr as a shorthand
 import random
 
-A = arr.array('I', [0]) * 10
+A = arr.array('I', [0]) * 256
 B = arr.array('I', [0]) * 300
 x = 0
+#Implement random seed
+
 
 def pop_arrays():
-    """
-    y = type(A)
-    print(y)
-
-    A.append(4) #Adds the number 4 to the end of the array (increases array size)
-    print(A)
-    """
+    
 #https://treyhunner.com/2016/04/how-to-loop-with-indexes-in-python/
 
     for x in range(len(A)):
-        print("Value is currently %d" % (A[x]))
         A[x] = random.randint(0, 1024)
-        print("Value is now %d" % (A[x]))
-        """
-        A[x] = random.randint(0, 1024)
-        test = random.randint(0,1024)
-        x += 1
-        print(A[x])"""
+
+    for x in range(len(B)):
+        B[x] = random.randint(0, 1024) 
+
+    print("Both arrays have now been populated")
+
+def sort_B():
+    #https://www.geeksforgeeks.org/python-program-for-quicksort/
+
+
 
 pop_arrays()
