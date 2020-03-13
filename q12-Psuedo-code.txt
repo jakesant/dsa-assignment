@@ -1,0 +1,22 @@
+Psuedo-code
+
+#Write a function that returns the sum of the first n numbers of the
+#Fibonacci sequence (Wikipedia). The first 2 numbers in the sequence
+#are 1,1, …
+
+user enters Nterms
+
+loop until Nterms == 0
+    call Fibonacci(Nterms)
+    sum = Fibonacci(Nterms)
+    NTerms - 1
+    
+
+
+Examples
+    sum of first 1 terms = 1
+    sum of first 2 terms = 2
+    sum of first 3 terms = 4
+    sum of first 1 terms = 1
+
+Fix order because order starts from 1
