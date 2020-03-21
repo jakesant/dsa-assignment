@@ -6,11 +6,15 @@
 
 
 numlist = [21,420,88,69,666,333,7,47]
+n = len(numlist)
 
-def large:
-    if(len(numlist) == 0):
-        print("This is an empty list.")
-    if(len(numlist) == 1):
-        print("The largest number is", numlist[0])
+def large(arr, size):
+    if(size == 1):
+        return arr[0]
     else:
-        
+        return max(arr[size-1], large(arr, size-1))
+
+def main():
+    print("The largest number in the list is", large(numlist, n))
+
+main()
