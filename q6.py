@@ -25,8 +25,12 @@ def prime(n):
 
 
 def sieve(arr):
-    for x in arr:
+    for x in range(len(arr)):
         if (arr[x] == 2) or (arr[x] == 3) or (arr[x] == 5):
             arr[x] = 0
 
-print(prime(1))
+    print(numlist)
+
+#print(prime(1)) #Test case for checking prime number
+
+sieve(numlist)
