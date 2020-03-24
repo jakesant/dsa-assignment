@@ -10,7 +10,9 @@
 #agree that an array has no extreme points if and only if it is sorted?
 #Explain your answer.
 
-numlist = [1, 2, 3, 4, 5, 6]#Change test data
+numlist = [1, 2, 3, 4, 5, 6]
+list2 = [0, 5, 3, 6, 8, 7, 15, 9]
+
 #Some pseudocode
 #EXTREME = TRUE if i != 0 and i != n-1
 
@@ -30,8 +32,13 @@ def findExtreme(A):
         if (A[i] > A[i-1] and A[i] > A[i+1]) or (A[i] < A[i-1] and A[i] < A[i+1]):
             result.append(A[i])    
         else:
-            continue        
-    print(result)
+            continue      
+
+    if result:
+        print(result)
+    if not result: #Empty lists are considered false
+        print("SORTED")
 
 findExtreme(numlist)
-#print(range(len(numlist) - 1))
+print("Now time for list 2. Output should be 5, 3, 8, 7, 15")
+findExtreme(list2)
