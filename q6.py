@@ -26,8 +26,9 @@ def prime(n):
 
 def sieve(arr):
     for x in range(len(arr)):
-        if (arr[x] == 2) or (arr[x] == 3) or (arr[x] == 5):
+        if prime(arr[x]) == True:
             arr[x] = 0
+            
 
     print(numlist)
 
