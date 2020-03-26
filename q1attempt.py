@@ -9,6 +9,7 @@
 import array as arr #We import the array module and can designate it as arr as a shorthand
 import random
 
+#Empty Arrays
 A = arr.array('I', [0]) * 256
 B = arr.array('I', [0]) * 300
 
