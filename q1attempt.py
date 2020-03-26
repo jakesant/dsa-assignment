@@ -57,5 +57,37 @@ def partition(array, first, last):
     array[i + 1], array[last] = array[last], array[i + 1]
     return i + 1
 
+#https://www.geeksforgeeks.org/shellsort/
+def shellshort(array):
+
+    n = len(array)
+    gap = len(array)//2
+
+    while gap > 0: 
+  
+        for i in range(gap, n): 
+  
+            # add a[i] to the elements that have been gap sorted 
+            # save a[i] in temp and make a hole at position i 
+            temp = array[i] 
+  
+            # shift earlier gap-sorted elements up until the correct 
+            # location for a[i] is found 
+            j = i 
+            while  j >= gap and array[j-gap] >temp: 
+                array[j] = array[j-gap] 
+                j -= gap 
+  
+            # put temp (the original a[i]) in its correct location 
+            array[j] = temp 
+        gap //= 2
+
+    print(array)
+
+
+
 pop_arrays()
-quicksort(B,0,len(B)-1)
+print(B)
+#quicksort(B,0,len(B)-1)
+test =  [12, 34, 54, 2, 3] 
+shellshort(B)
