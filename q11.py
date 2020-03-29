@@ -1,0 +1,1 @@
+#Write a function that computes cosine or sine by taking the first n terms of the appropriate series expansion
