@@ -24,13 +24,6 @@ def pop_arrays():
 
     print("Both arrays have now been populated")
 
-
-#Pseudo-code
-#Create array C
-#Get numbers from A into C
-#Get numbers from B into C
-#Sort in linear - use timsort
-
 def merge_arrays(array1, array2, result):
     start_time = time.time()
     #https://stackoverflow.com/questions/7237875/linear-merging-for-lists-in-python

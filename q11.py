@@ -8,15 +8,17 @@ import math
 def cos(n):
     result = 0.0
 
-    for i in range(0, 20): #Performs series for up to 20 terms to give a more accurate result
+    for i in range(31): #Performs series for up to 30 terms to give a more accurate result
         dividend = ((-1)**i) * (x**(2*i))
         divisor = fact(2*n)
         result += dividend/divisor
 
+    return result
+
 def sin(n):
     result = 0.0
 
-    for i in range(0,20): #Performs series for up to 20 terms to give a more accurate result
+    for i in range(31): #Performs series for up to 30 terms to give a more accurate result
         dividend = ((-1)**i) * (x**((2*i)+1))
         divisor = fact((2*i)+1)
         result += dividend/divisor
@@ -28,3 +30,7 @@ def fact(n):
         return 1.0
     else:
         return n * fact(n-1)
+
+print("#### TEST ####")
+x = 2.68
+print("%0.12f" %sin(x))
