@@ -6,15 +6,25 @@
 import math
 
 def cos(n):
-    print("nig")
+    result = 0.0
+
+    for i in range(0, 20): #Performs series for up to 20 terms to give a more accurate result
+        dividend = ((-1)**i) * (x**(2*i))
+        divisor = fact(2*n)
+        result += dividend/divisor
 
 def sin(n):
     result = 0.0
 
+    for i in range(0,20): #Performs series for up to 20 terms to give a more accurate result
+        dividend = ((-1)**i) * (x**((2*i)+1))
+        divisor = fact((2*i)+1)
+        result += dividend/divisor
+
+    return result
+
 def fact(n):
     if (n == 0):
-        return 0
+        return 1.0
     else:
         return n * fact(n-1)
-xyz = 2 ** 10
-print(xyz)
