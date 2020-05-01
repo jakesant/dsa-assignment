@@ -25,16 +25,13 @@ def new_node(number):
             bst.root.left = number
 
 def print_tree(tree):
-    #Tree will be printed using In-Order traversal (LNR)
-    if(tree.root.left is not None): #using is not is preferred in Python
-        print_tree(tree.root.left)
-    print(Tree.root.number)
-    if(tree.root.right is not None):
-        print_tree(tree.root.right)
-
+    if(tree.root is not None):
+        print(tree.root.left, tree.root.number, tree.root.right)
+    else:
+        print("An error has occured")
 
 seq = [10, 5, 1, 7, 40, 50]
-med = statistics.median(seq)
+med = statistics.median(seq) #Don't actually need this nahseb
 bst = Tree()
 new_node(5)
 new_node(10)
