@@ -20,13 +20,15 @@ class Tree:
             print("An error has occured")
 
     def new_node(self, number):
-        if(self.root == None):
+        if(self.root is not None):
             self.root = Node(number)
         else:
             if(number > self.root.number):
-                self.root.right = number
+                if(self.root.right is None):
+                    self.root.right = Node(number) #Creates the right side as a new node if doesn't already exist 
             elif(number < self.root.number):
-                self.root.left = number
+                if(self.root.left is None):
+                    self.root.left = Node(number) #Creates the left side as a new node if doesn't already exist
 
 
 
@@ -35,4 +37,4 @@ bst = Tree()
 bst.new_node(5)
 bst.new_node(10)
 bst.new_node(1)
-bst.print_tree()
+print("Yo")
