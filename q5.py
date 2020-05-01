@@ -2,12 +2,13 @@
 #contents of the stack should be displayed on the screen during evaluation.
 #The allowed arithmetic operators are +, -, x, and /
 
-import operator
+import operator as op
 
-ops = { '+': operator.add,
-        '-': operator.sub,
-        'x': operator.mul,
-        '/': operator.truediv
+ops = { '+': op.add,
+        '-': op.sub,
+        'x': op.mul,
+        '*': op.mul,
+        '/': op.truediv
 }
 
 #Operators will apply on 2 operands
@@ -16,17 +17,22 @@ def evaluate(expression):
     stack = []
 
     for char in expression:
-        if char.isdigit():
-            stack.append(char)
-            print("pushing", char)
+#        if char.isdigit():
+#           stack.append(char)
         if not char:
             break
+        elif char in ops:
+            num1 = stack.pop()
+            num2 = stack.pop()
+            operator = ops[char]
+            result = operator(num1,num2)
+            stack.append(result)
+        else:
+            stack.append(char)
 
-    print("The contents of the stack is: ", stack)
-    stack.pop()
-    print("The contents of the stack is: ", stack)
+    print("The result of the expression is", stack)
 
-rpnexp = ["2", "1", "+", "3", "*"]
+rpnexp = [2, 1, "+", 3, "*"]
 evaluate(rpnexp)
 
 """Psuedocode:
