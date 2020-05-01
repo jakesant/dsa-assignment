@@ -11,4 +11,6 @@ ops = { '+': operator.add,
 }
 
 def stack():
-    
+
+
+expression = ["2", "1", "+", "3", "*"]
