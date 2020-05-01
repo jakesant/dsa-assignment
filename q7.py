@@ -2,8 +2,6 @@
 #one) and then incrementally builds, and displays, a Binary Search Tree
 #(BST). There is no need to balance the BST.
 
-import statistics
-
 class Node:
     def __init__(self, number = None):
         self.number = number
@@ -15,25 +13,26 @@ class Tree:
     def __init__(self):
         self.root = None
 
-def new_node(number):
-    if(bst.root == None):
-        bst.root = Node(number)
-    else:
-        if(number > bst.root.number):
-            bst.root.right = number
-        elif(number < bst.root.number):
-            bst.root.left = number
+    def print_tree(self):
+        if(self.root is not None):
+            print(self.root.left, self.root.number, self.root.right) #"Technically" this is In-Order lol 
+        else:
+            print("An error has occured")
 
-def print_tree(tree):
-    if(tree.root is not None):
-        print(tree.root.left, tree.root.number, tree.root.right)
-    else:
-        print("An error has occured")
+    def new_node(self, number):
+        if(self.root == None):
+            self.root = Node(number)
+        else:
+            if(number > self.root.number):
+                self.root.right = number
+            elif(number < self.root.number):
+                self.root.left = number
+
+
 
 seq = [10, 5, 1, 7, 40, 50]
-med = statistics.median(seq) #Don't actually need this nahseb
 bst = Tree()
-new_node(5)
-new_node(10)
-new_node(1)
-print_tree(bst)
+bst.new_node(5)
+bst.new_node(10)
+bst.new_node(1)
+bst.print_tree()
