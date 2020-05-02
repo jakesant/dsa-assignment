@@ -6,11 +6,10 @@
 #https://www.geeksforgeeks.org/sum-fibonacci-numbers/
 
 def sumFib(nterms):
-
     x = nterms
     sum = 0
 
-    while nterms != 1:
+    while nterms != 0:
         sum += fib(nterms)
         nterms -= 1
 
