@@ -8,33 +8,54 @@ class Node:
         self.left = None
         self.right = None
 
-class Tree:
+    def new_node(self, number):
+        if(self.number is None):
+            self.number = number
+        else:
+            if(number > self.number):
+                if(self.right is None):
+                    self.right = Node(number) #Creates the right side as a new node if doesn't already exist
+                else:
+                    self.right.new_node(number)
+            elif(number < self.number):
+                if(self.left is None):
+                    self.left = Node(number) #Creates the left side as a new node if doesn't already exist
+                else:
+                    self.left.new_node(number)
 
+class Tree:
     def __init__(self):
         self.root = None
 
-    def print_tree(self):
-        if(self.root is not None):
-            print(self.root.left, self.root.number, self.root.right) #"Technically" this is In-Order lol 
+    def print_tree(self, currentNode):
+        if(currentNode is not None):
+            if(currentNode.left is not None):
+                self.print_tree(currentNode.left)
+            else:
+                print(currentNode.number)
+            if(currentNode.right is not None):
+                self.print_tree(currentNode.right)
+            else:
+                print(currentNode.number)
         else:
             print("An error has occured")
 
     def new_node(self, number):
-        if(self.root is not None):
-            self.root = Node(number)
+        #This is needed to use the node's functions without making it a subclass and fucking everything over
+        if(self.root is None):
+            self.root = Node(number) #Creates new node for root
         else:
-            if(number > self.root.number):
-                if(self.root.right is None):
-                    self.root.right = Node(number) #Creates the right side as a new node if doesn't already exist 
-            elif(number < self.root.number):
-                if(self.root.left is None):
-                    self.root.left = Node(number) #Creates the left side as a new node if doesn't already exist
-
+            self.root.new_node(number)
 
 
 seq = [10, 5, 1, 7, 40, 50]
 bst = Tree()
-bst.new_node(5)
 bst.new_node(10)
+bst.new_node(5)
 bst.new_node(1)
-print("Yo")
+bst.new_node(7)
+bst.new_node(40)
+bst.new_node(50)
+#for i in seq:
+ #   bst.new_node(i) #Builds binary search try milewwel
+bst.print_tree(bst.root)
