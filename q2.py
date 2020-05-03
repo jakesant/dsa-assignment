@@ -24,26 +24,34 @@ def pop_arrays():
 
     print("Both arrays have now been populated")
 
-def merge_arrays(array1, array2, result):
-    start_time = time.time()
-    #https://stackoverflow.com/questions/7237875/linear-merging-for-lists-in-python
+def quicksort(array, first, last):
+    """Sorts array using quicksort
+    Arguments:
+        array {int array} -- int array of size >= 256
+        first {index} -- first element
+        last {index} -- last element
+    """
 
-    while len(array1) and len(array2):
-        if array1[0] < array2[0]:
-            result.append(array1.pop(0)) #Append doesn't work here because it would add the element add the end of C and the size was already defined
-        else:
-            result.append(array2.pop(0))
+    if first < last:
+        pivot = partition(array, first, last)
+        quicksort(array, first, pivot - 1)
+        quicksort(array, pivot + 1, last)
+    #https://www.geeksforgeeks.org/python-program-for-quicksort/
+    #https://github.com/gbrunofranco/PythonAlgorithms/blob/master/sort/quick_sort.py
 
-    result.extend(array1)
-    result.extend(array2)
 
-    end_time = time.time()
-    
-    final_time = end_time-start_time
-    print("Time taken is %0.7f seconds" % float(final_time))
+    return array
 
-    print(result)
+def partition(array, first, last):
+    pivot = array[last]
+    i = first - 1
+    for j in range(first, last):
+        if array[j] < pivot:
+            i += 1 #Error out of index occurs here
+            array[i], array[j] = array[j], array[i]
 
+    array[i + 1], array[last] = array[last], array[i + 1]
+    return i + 1
 
 def shellshort(array):
 
@@ -70,6 +78,26 @@ def shellshort(array):
         gap //= 2
 
     print(array)
+
+def merge_arrays(array1, array2, result):
+    start_time = time.time()
+    #https://stackoverflow.com/questions/7237875/linear-merging-for-lists-in-python
+
+    while len(array1) and len(array2):
+        if array1[0] < array2[0]:
+            result.append(array1.pop(0)) #Append doesn't work here because it would add the element add the end of C and the size was already defined
+        else:
+            result.append(array2.pop(0))
+
+    result.extend(array1)
+    result.extend(array2)
+
+    end_time = time.time()
+    
+    final_time = end_time-start_time
+    print("Time taken is %0.7f seconds" % float(final_time))
+
+    print(result)
 
 pop_arrays()
 shellshort(A)
