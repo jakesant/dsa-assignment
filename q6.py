@@ -28,27 +28,6 @@ def prime(n):
 
     print("The time taken for the algorithm to run was %.8f seconds" % (test_end - test_start))
 
-def prime2(n):
-    test_start = time.perf_counter()
-    pol = False
-    if (n > 1):
-        for i in range(2, n-1):
-            if(n % i) == 0:
-                pol = False
-                break
-        else:
-            pol = True
-    else:
-        pol = False
-
-    test_end = time.perf_counter()
-    if(pol is True):
-        print(n, "is a prime number")
-    else:
-        print(n, "is not a prime number")
-
-    print("The time taken for the algorithm to run was %.8f seconds" % (test_end - test_start))   
-
 def sieve(n):
     test_start = time.perf_counter() #Gets current time; used for testing speed of algorithm
     sievelist = [True for i in range(n+1)] #Creates a list with the values of True going from 0 to n+1
@@ -70,6 +49,6 @@ def sieve(n):
     print(primelist)
     print("The time taken for the algorithm to run was %.8f seconds" % (test_end - test_start)) #Gives time taken for Sieve algorithm to run to 5 significant digits after decimal
 
-prime2(36)
+
 prime(36)
 sieve(36)
