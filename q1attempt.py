@@ -49,7 +49,7 @@ def quicksort(array, first, last):
 
 def partition(array, first, last):
     pivot = array[last]
-    i = last - 1
+    i = first - 1
     for j in range(first, last):
         if array[j] < pivot:
             i += 1 #Error out of index occurs here
@@ -58,7 +58,6 @@ def partition(array, first, last):
     array[i + 1], array[last] = array[last], array[i + 1]
     return i + 1
 
-#https://www.geeksforgeeks.org/shellsort/
 def shellshort(array):
 
     n = len(array)
@@ -85,10 +84,10 @@ def shellshort(array):
 
     print(array)
 
-
-
 pop_arrays()
+print(A)
+shellshort(A)
+print(A)
 print(B)
-#quicksort(B,0,len(B)-1)
-test =  [12, 34, 54, 2, 3] 
-shellshort(B)
+quicksort(B,0,len(B)-1)
+print(B)
