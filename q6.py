@@ -1,48 +1,61 @@
 #Write a Boolean function that checks if a number is prime. Also implement the Sieve of Eratosthenes
 #algorithm. Explain any optimizations made.
 
-#PSEUDO-CODE:
-#A number is prime if is only divisible by itself
-
-#https://www.geeksforgeeks.org/bool-in-python/
-
-numlist = list(range(2, 37)) #Creates a list with all values from 2 to 36 - last number is not inclusive
+import time
 
 def prime(n):
+    test_start = time.perf_counter()
+    pol = False
+
     if (n % 2 != 0) and (n % 3 != 0) and (n % 5 != 0):
-        return True
+        pol = True
     elif n == 1: #Necessary as 1 is not a prime number
-        return False        
+        pol = False        
     elif n == 2:
-        return True
+        pol = True
     elif n == 3:
-        return True
+        pol = True
     elif n == 5:
-        return True        
+        pol = True        
     #The 3 conditions above are required as they act as base cases
     else:
-        return False
+        pol = False
+    test_end = time.perf_counter()
+    if(pol is True):
+        print(n, "is a prime number")
+    else:
+        print(n, "is not a prime number")
 
+    print("The time taken for the algorithm to run was %.8f seconds" % (test_end - test_start))
+
+def prime2(n):
+    test_start = time.perf_counter()
+    pol = False
+    if (n > 1):
+        for i in range(2, n-1):
+            if(n % i) == 0:
+                pol = False
+                break
+        else:
+            pol = True
+    else:
+        pol = False
+
+    test_end = time.perf_counter()
+    if(pol is True):
+        print(n, "is a prime number")
+    else:
+        print(n, "is not a prime number")
+
+    print("The time taken for the algorithm to run was %.8f seconds" % (test_end - test_start))   
 
 def sieve(n):
-
-    """Description:
-    Create a list of consecutive numbers starting from 2 to n
-    let prime variable = 2 (first prime number)
-    Starting from p2, count up in increments of p and mark
-    each of these numbers greater than or equal to p2 itself in the list.
-    These numbers will be p(p+1), p(p+2), p(p+3), etc.
-    Find the first number greater than p in the list that is not marked.
-    If there was no such number, stop. Otherwise, let p now equal this number
-    (which is the next prime), and repeat from step 3
-    """
-
+    test_start = time.perf_counter() #Gets current time; used for testing speed of algorithm
     sievelist = [True for i in range(n+1)] #Creates a list with the values of True going from 0 to n+1
     primelist = [] #Initiates list which will store values of prime numbers
     p = 2
 
     while((p * p) <= n):
-
         if(sievelist[p] == True): #If number we have set as P is prime
             for i in range(p*p, n+1, p):
                 sievelist[i] = False
@@ -52,8 +65,11 @@ def sieve(n):
         if sievelist[p]:
             primelist.append(p) #Adds the prime number we have found to the list
 
+    test_end = time.perf_counter()
     print("The prime numbers smaller than",n,"are:")
     print(primelist)
-#print(prime(1)) #Test case for checking prime number
+    print("The time taken for the algorithm to run was %.8f seconds" % (test_end - test_start)) #Gives time taken for Sieve algorithm to run to 5 significant digits after decimal
 
+prime2(36)
+prime(36)
 sieve(36)
