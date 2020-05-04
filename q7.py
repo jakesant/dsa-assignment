@@ -31,26 +31,13 @@ class Tree:
         if(currentNode is not None):
             if(currentNode.left is not None):
                 self.print_tree(currentNode.left)
-            elif(currentNode.left is None and currentNode.right is not None):
-                print(currentNode.number)
-                self.print_tree(currentNode.right)
-            elif(currentNode.left is None and currentNode.right is None):
-                print(currentNode.number)
-        else:
-            print("An error has occured")
-
-
-    def print2(self, currentNode):
-        if(currentNode is not None):
-            if(currentNode.left is not None):
-                self.print2(currentNode.left)
             print(currentNode.number)
             if(currentNode.right is not None):
-                self.print2(currentNode.right)
+                self.print_tree(currentNode.right)
         else:
             print("An error has occured")
-    def new_node(self, number):
 
+    def new_node(self, number):
         #This is needed to use the node's functions without making it a subclass and fucking everything over
         if(self.root is None):
             self.root = Node(number) #Creates new node for root
@@ -69,4 +56,4 @@ bst.new_node(20)
 #for i in seq:
  #   bst.new_node(i) #Builds binary search try milewwel
 #bst.print_tree(bst.root)
-bst.print2(bst.root)
+bst.print_tree(bst.root)
