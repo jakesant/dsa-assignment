@@ -10,7 +10,7 @@ import time #Used to examine time taken for function to fully execute
 
 A = arr.array('I', [0]) * 256
 B = arr.array('I', [0]) * 300
-C = arr.array('I')
+C = arr.array('I', [0])
 
 def pop_arrays():
 
@@ -39,7 +39,6 @@ def quicksort(array, first, last):
     #https://www.geeksforgeeks.org/python-program-for-quicksort/
     #https://github.com/gbrunofranco/PythonAlgorithms/blob/master/sort/quick_sort.py
 
-
     return array
 
 def partition(array, first, last):
@@ -47,7 +46,7 @@ def partition(array, first, last):
     i = first - 1
     for j in range(first, last):
         if array[j] < pivot:
-            i += 1 #Error out of index occurs here
+            i += 1
             array[i], array[j] = array[j], array[i]
 
     array[i + 1], array[last] = array[last], array[i + 1]
@@ -80,7 +79,8 @@ def shellshort(array):
     print(array)
 
 def merge_arrays(array1, array2, result):
-    start_time = time.time()
+    #https://youtu.be/xF3TU-QlhJQ
+    start_time = time.perf_counter()
     #https://stackoverflow.com/questions/7237875/linear-merging-for-lists-in-python
 
     while len(array1) and len(array2):
@@ -92,14 +92,38 @@ def merge_arrays(array1, array2, result):
     result.extend(array1)
     result.extend(array2)
 
-    end_time = time.time()
-    
-    final_time = end_time-start_time
-    print("Time taken is %0.7f seconds" % float(final_time))
+    end_time = time.perf_counter()
+    print("Time taken is %0.7f seconds" % (end_time-start_time))
 
-    print(result)
+def merge2(array1, array2, result):
+    start_time = time.perf_counter()
+    i = 0
+    j = 0
+    k = 0
+
+    while(i < len(array1) and j < len(array2)):
+        if(array1[i] < array2[j]):
+            result[k] = array1[i] #Array index out of range occurs because of C
+            i += 1
+            k += i
+        else:
+            result[k] = array2[j] #array happens here because I need to use append as well
+            j += 1
+            k += i
+
+    if(i < len(array1)):
+        #append remaining elements from array1 to the result
+        result.append(array1[i:])
+    elif(j < len(array2)):
+        result.append(array2[j:])
+
+    end_time = time.perf_counter()
+    print("Time taken is %0.7f seconds" % (end_time-start_time))
 
 pop_arrays()
 shellshort(A)
-shellshort(B)
-merge_arrays(A, B, C)
+quicksort(B,0,len(B)-1)
+#merge_arrays(A, B, C)
+test1 = arr.array('I', [1, 3, 5, 7, 9])
+test2 = arr.array('I', [2, 4, 8, 10, 11, 12, 16])
+merge2(test1,test2,C)
