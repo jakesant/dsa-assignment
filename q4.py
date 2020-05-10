@@ -33,11 +33,30 @@ def find_pairs(arr):
             product = arr[i] * arr[j]
             combinations.append(product)
         """
-    while (i < len(arr)):
+    
+    """while (i < len(arr)):
         for j in range(0, len(arr) - 1):
             combinations.append([arr[i], arr[j], (arr[i] * arr[j])])
         i += 1
-    
+    """
+    while (i < len(arr)):
+        temp_num = arr[i]
+        for j in range(0, len(arr) - 1): #might have to remove the -1
+            combinations.append([temp_num, arr[j], (temp_num * arr[j])])
+        i += 1
+
     print("Combinations are", combinations)
+    size = len(combinations)
+
+    """while(i < len(combinations)):
+        temp_num = combinations[[i]]
+        for j in range(0, len(arr) - 1):
+            if(temp_num[]
+        i += 1"""
+
+    temp_num = combinations[2]
+    print("hello waiting")
+    print(temp_num[2])
+    print("Combination is of size", size)
 numlist = [3, 4, 6, 12, 1, 2, 5, 9, 10, 8, 14]
 find_pairs(numlist)
