@@ -1,5 +1,3 @@
-#Attempting question 1 of the DSA assignment
-
 #Create two integer arrays A and B. The two arrays must contain at least 256 elements but
 #must be of unequal size. Populate both arrays with randomly generated integers between
 #0 and 1024. Sort array A using Shell Sort and array B using Quick Sort
@@ -85,9 +83,8 @@ def shellshort(array):
     print(array)
 
 pop_arrays()
-print(A)
 shellshort(A)
-print(A)
-print(B)
-quicksort(B,0,len(B)-1)
-print(B)
+testl = [1, 32, 99, 241, 49, 5, 7, 9, 24, 52, 12, 18]
+quicksort(testl, 0, len(testl) -1)
+print(testl)
+#quicksort(B,0,len(B)-1)

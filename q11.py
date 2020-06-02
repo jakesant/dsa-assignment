@@ -33,4 +33,5 @@ def fact(n):
 
 print("#### TEST ####")
 x = 2.68
-print("%0.12f" %sin(x))
+#print("%0.12f" %sin(x))
+print(cos(90))

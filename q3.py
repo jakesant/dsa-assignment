@@ -13,10 +13,9 @@
 numlist = [1, 2, 3, 4, 5, 6]
 list2 = [0, 5, 3, 6, 8, 7, 15, 9]
 
-#Some pseudocode
 #EXTREME = TRUE if i != 0 and i != n-1
 
-def findExtreme(A):
+def find_extreme(A):
     result = [] #list that will hold the extreme points
     #i=1
     #while((i != 0) and i != (len(A) - 1)):

@@ -48,15 +48,18 @@ def find_pairs(arr):
     print("Combinations are", combinations)
     size = len(combinations)
 
-    """while(i < len(combinations)):
-        temp_num = combinations[[i]]
-        for j in range(0, len(arr) - 1):
-            if(temp_num[]
-        i += 1"""
+    while(i < len(combinations)):
+        temp_num = combinations[i] #loops one sublist at a time
+        for j in range(0, len(combinations) - 1):
+            temp_comb = combinations[j]
+            if(temp_num[2] == temp_comb[2]) and (temp_num[0] != (temp_comb[0])) and (temp_num[0] != (temp_comb[1])):
+                if(temp_num[1] != (temp_comb[0])) and (temp_num[1] != (temp_comb[1])):
+                    if(temp_num[0] != temp_num[1] and temp_comb[0] != temp_comb[1]):
+                        #Compares the element of the product
+                        print(temp_num[0], "x", temp_num[1], "=", temp_comb[0], "x", temp_comb[1])
+        i += 1
 
-    temp_num = combinations[2]
-    print("hello waiting")
-    print(temp_num[2])
     print("Combination is of size", size)
-numlist = [3, 4, 6, 12, 1, 2, 5, 9, 10, 8, 14]
-find_pairs(numlist)
+#numlist = [3, 4, 6, 12, 1, 2, 5, 9, 10, 8, 14]
+tupac = [2, 4, 32, 16, 1]
+find_pairs(tupac)

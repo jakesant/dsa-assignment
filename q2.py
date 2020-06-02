@@ -103,11 +103,13 @@ def merge2(array1, array2, result):
 
     while(i < len(array1) and j < len(array2)):
         if(array1[i] < array2[j]):
-            result[k] = array1[i] #Array index out of range occurs because of C
+            #result[k] = array1[i] #Array index out of range occurs because of C
+            result.append(array1[i])
             i += 1
             k += i
         else:
-            result[k] = array2[j] #array happens here because I need to use append as well
+            #result[k] = array2[j] #array happens here because I need to use append as well
+            result.append(array2[j])
             j += 1
             k += i
 
@@ -115,14 +117,14 @@ def merge2(array1, array2, result):
         #append remaining elements from array1 to the result
         result.append(array1[i:])
     elif(j < len(array2)):
-        result.append(array2[j:])
+        result.append(array2[j:]) #an integer is required (got type array.array)
 
     end_time = time.perf_counter()
     print("Time taken is %0.7f seconds" % (end_time-start_time))
 
 pop_arrays()
-shellshort(A)
-quicksort(B,0,len(B)-1)
+#shellshort(A)
+#quicksort(B,0,len(B)-1)
 #merge_arrays(A, B, C)
 test1 = arr.array('I', [1, 3, 5, 7, 9])
 test2 = arr.array('I', [2, 4, 8, 10, 11, 12, 16])
