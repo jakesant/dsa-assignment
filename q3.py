@@ -38,6 +38,6 @@ def find_extreme(A):
     if not result: #Empty lists are considered false
         print("SORTED")
 
-findExtreme(numlist)
+find_extreme(numlist)
 print("Now time for list 2. Output should be 5, 3, 8, 7, 15")
-findExtreme(list2)
+find_extreme(list2)

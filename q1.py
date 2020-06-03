@@ -5,58 +5,41 @@
 #Python has arrays but they have to be imported
 
 import array as arr #We import the array module and can designate it as arr as a shorthand
-import random
+import random #Used for
 
-#Empty Arrays
+#Initialisation of empty arrays
 A = arr.array('I', [0]) * 256
 B = arr.array('I', [0]) * 300
 
-x = 0
-#Implement random seed
+def pop_array(array):
 
+    for x in range(len(array)):
+        array[x] = random.randint(0, 1024)
 
-def pop_arrays():
+    print("Array has now been randomly populated")
 
-#https://treyhunner.com/2016/04/how-to-loop-with-indexes-in-python/
+def quicksort(array, first_element, last_element):
 
-    for x in range(len(A)):
-        A[x] = random.randint(0, 1024)
-
-    for x in range(len(B)):
-        B[x] = random.randint(0, 1024) 
-
-    print("Both arrays have now been populated")
-
-def quicksort(array, first, last):
-    """Sorts array using quicksort
-    Arguments:
-        array {int array} -- int array of size >= 256
-        first {index} -- first element
-        last {index} -- last element
-    """
-
-    if first < last:
-        pivot = partition(array, first, last)
-        quicksort(array, first, pivot - 1)
-        quicksort(array, pivot + 1, last)
-    #https://www.geeksforgeeks.org/python-program-for-quicksort/
-    #https://github.com/gbrunofranco/PythonAlgorithms/blob/master/sort/quick_sort.py
-
+    if first_element < last_element:
+        pivot = partition(array, first_element, last_element)
+        quicksort(array, first_element, pivot - 1)
+        quicksort(array, pivot + 1, last_element)
 
     return array
 
-def partition(array, first, last):
-    pivot = array[last]
-    i = first - 1
-    for j in range(first, last):
+def partition(array, first_element, last_element):
+
+    pivot = array[last_element]
+    i = first_element - 1
+    for j in range(first_element, last_element):
         if array[j] < pivot:
-            i += 1 #Error out of index occurs here
+            i += 1
             array[i], array[j] = array[j], array[i]
 
-    array[i + 1], array[last] = array[last], array[i + 1]
+    array[i + 1], array[last_element] = array[last_element], array[i + 1]
     return i + 1
 
-def shellshort(array):
+def shellsort(array):
 
     n = len(array)
     gap = len(array)//2
@@ -80,11 +63,23 @@ def shellshort(array):
             array[j] = temp 
         gap //= 2
 
-    print(array)
+    return array
 
-pop_arrays()
-shellshort(A)
-testl = [1, 32, 99, 241, 49, 5, 7, 9, 24, 52, 12, 18]
-quicksort(testl, 0, len(testl) -1)
+testl = arr.array('I', [0]) * 10
+pop_array(testl)
 print(testl)
-#quicksort(B,0,len(B)-1)
+shellsort(testl)
+print(testl)
+
+test2 = arr.array('I', [0]) * 20
+pop_array(test2)
+print(test2)
+quicksort(test2, 0, len(test2) - 1)
+print(test2)
+
+"""
+pop_array(A)
+print(A)
+shellsort(A)
+print(A)
+"""
