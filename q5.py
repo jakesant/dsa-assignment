@@ -17,8 +17,6 @@ def evaluate(expression):
     stack = []
 
     for char in expression:
-#        if char.isdigit():
-#           stack.append(char)
         if not char:
             break
         elif char in ops:
@@ -38,7 +36,7 @@ evaluate(rpnexp)
 """Psuedocode:
     Read through expression in a list character by character
     If char is number, push onto the stack
-    if we meet an operand, we
+    if char is an operand,
         pop last two numbers from stack
         work out that operation
         push result into stack

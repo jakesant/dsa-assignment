@@ -29,21 +29,16 @@ class Tree:
 
     def print_tree(self, currentNode):
         if(currentNode is not None):
-
-            self.print_tree(currentNode.left)
-
             if(currentNode.left is not None):
                 self.print_tree(currentNode.left)
             print(currentNode.number)
             if(currentNode.right is not None):
                 self.print_tree(currentNode.right)
-
-            self.print_tree(currentNode.right)
         else:
             print("An error has occured")
 
     def new_node(self, number):
-        #This is needed to use the node's functions without making it a subclass and fucking everything over
+        #This is needed to use the node's functions without making it a subclass
         if(self.root is None):
             self.root = Node(number) #Creates new node for root
         else:
@@ -53,5 +48,5 @@ class Tree:
 seq = [10, 5, 1, 7, 40, 50]
 bst = Tree()
 for i in seq:
-   bst.new_node(i) #Builds binary search try milewwel
+   bst.new_node(i) #Builds binary search tree
 bst.print_tree(bst.root)

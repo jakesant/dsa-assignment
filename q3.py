@@ -17,12 +17,6 @@ list2 = [0, 5, 3, 6, 8, 7, 15, 9]
 
 def find_extreme(A):
     result = [] #list that will hold the extreme points
-    #i=1
-    #while((i != 0) and i != (len(A) - 1)):
-    #    if (A[i] > A[i-1] and A[i] > A[i+1]) or (A[i] < A[i-1] and A[i] < A[i+1]):
-    #        result.append(A[i])
-    #    i=i+1  
-
   
    #for i in range(1, len(A) - 1) works too
     for i in range(len(A) - 1):
@@ -33,8 +27,8 @@ def find_extreme(A):
         else:
             continue      
 
-    if result:
-        print(result)
+    if result: #Means "if result contains any data"
+        print("The extreme points are", result)
     if not result: #Empty lists are considered false
         print("SORTED")
 

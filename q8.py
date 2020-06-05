@@ -2,11 +2,9 @@
 #an iterative numerical method such as the Newton-Raphson Method.
 
 #Newton-Raphson Method works by
-
 #Formula --- x sub(n+1) = x sub n - f(x sub n)/f'(x sub n) -- sub means subscript
 
-#Babylonian method https://blogs.sas.com/content/iml/2016/05/16/babylonian-square-roots.html
-def guessRoot(n):
+def guess_root(n):
     result = 0
 
     if n == 0:
@@ -23,4 +21,4 @@ def guessRoot(n):
             
     return result
 
-print("%0.8f" %(guessRoot(300)))
+print("%0.12f" %(guess_root(300)))

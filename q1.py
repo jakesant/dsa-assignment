@@ -5,7 +5,7 @@
 #Python has arrays but they have to be imported
 
 import array as arr #We import the array module and can designate it as arr as a shorthand
-import random #Used for
+import random
 
 #Initialisation of empty arrays
 A = arr.array('I', [0]) * 256
@@ -47,19 +47,14 @@ def shellsort(array):
     while gap > 0: 
   
         for i in range(gap, n): 
-  
-            # add a[i] to the elements that have been gap sorted 
-            # save a[i] in temp and make a hole at position i 
             temp = array[i] 
   
-            # shift earlier gap-sorted elements up until the correct 
-            # location for a[i] is found 
             j = i 
+
             while  j >= gap and array[j-gap] >temp: 
                 array[j] = array[j-gap] 
                 j -= gap 
-  
-            # put temp (the original a[i]) in its correct location 
+
             array[j] = temp 
         gap //= 2
 
@@ -77,9 +72,9 @@ print(test2)
 quicksort(test2, 0, len(test2) - 1)
 print(test2)
 
-"""
 pop_array(A)
-print(A)
+pop_array(B)
 shellsort(A)
+quicksort(B, len(B) - 1)
 print(A)
-"""
+print(B)

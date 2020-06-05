@@ -13,7 +13,4 @@ def large(arr, size):
         else:
             return current_num
 
-def main():
-    print("The largest number in the list is", large(numlist, len(numlist)))
-
-main()
+print("The largest number in the list is", large(numlist, len(numlist)))

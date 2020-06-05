@@ -1,11 +1,8 @@
 #Write a function that returns the sum of the first n numbers of the
-#Fibonacci sequence (Wikipedia). The first 2 numbers in the sequence
+#Fibonacci sequence. The first 2 numbers in the sequence
 #are 1,1, …
 
-
-#https://www.geeksforgeeks.org/sum-fibonacci-numbers/
-
-def sumFib(nterms):
+def sum_fib(nterms):
     x = nterms
     sum = 0
 
@@ -25,8 +22,4 @@ def fib(n): #Recursive Fibonacci program
     else:
         return fib(n-1) + fib(n-2)
 
-def main():
-    print("This program will calculate the sum of the first X numbers in the Fibonnaci sequence")
-    numInput = input("Enter a number")
-
-sumFib(5)
+sum_fib(5)
